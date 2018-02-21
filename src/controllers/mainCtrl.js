@@ -1,15 +1,22 @@
-function MainCtrl ($scope) {
-  $scope.message = 'Hello $scope'
-  $scope.address = '3608 Sperry Ave.'
-  $scope.addresses = []
+function MainCtrl () {
+  this.message = 'Hello this'
+  this.address = '3608 Sperry Ave.'
+  this.addresses = []
 
-  $scope.clickIt = function () {
-    $scope.message = 'New Message'
+  this.clickIt = function () {
+    this.message = this.message === 'New Message'
+      ? 'Hello this'
+      : 'New Message'
   }
 
-  $scope.addAddress = function () {
-    $scope.addresses.push($scope.address)
-    $scope.address = ''
+  this.addAddress = function () {
+    if (this.address) {
+      this.addresses.push(this.address);
+    } else {
+      alert('No address');
+    }
+
+    this.address = ''
   }
 }
 
