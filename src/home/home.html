@@ -1,9 +1,17 @@
-<div>
-  <input type="text" ng-model="ctrl.address">
-  <button ng-click="ctrl.addAddress()">Add Address</button>
-  <ul>
-    <li ng-repeat="item in ctrl.addresses">{{item}}</li>
-  </ul>
-  {{ ctrl.message }}
-  <button ng-click="ctrl.clickIt()">Change Message</button>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Routed Element</h5>
+    <form ng-submit="ctrl.addAddress()">
+      <label for="addAddress">Add Address</label>
+      <input id="addAddress" type="text" class="form-control" ng-model="ctrl.address" placeholder="Add Address">
+      <button class="btn btn-default" type="submit">Add Address</button>
+    </form>
+    <ul>
+      <li ng-repeat="item in ctrl.addresses track by $index">{{item}}</li>
+    </ul>
+    <p class="card-text">
+      {{ ctrl.message }}
+    </p>
+    <button ng-click="ctrl.clickIt()">Change Message</button>
+  </div>
 </div>

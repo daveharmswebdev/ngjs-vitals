@@ -91,12 +91,12 @@ const config = {
     contentBase: path.resolve(__dirname, "./dist/assets/media"),
     compress: true,
     port: 12000,
-    stats: 'errors-only',
-    open: true
+    open: true,
+    historyApiFallback: true
   },
 
   devtool: 'inline-source-map'
-  
+
 }
 
 module.exports = config;
