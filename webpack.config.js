@@ -39,7 +39,7 @@ const config = {
       //sass-loader
       {
         test: /\.scss$/,
-        include: [path.resolve(__dirname, 'src', 'assets', 'media','scss')],
+        include: [path.resolve(__dirname, 'src', 'assets','scss')],
         use: extractPlugin.extract({
           use: [
             {

@@ -1,4 +1,4 @@
-function MainCtrl () {
+function homeCtrl () {
   this.message = 'Hello this'
   this.address = '3608 Sperry Ave.'
   this.addresses = []
@@ -20,4 +20,4 @@ function MainCtrl () {
   }
 }
 
-export { MainCtrl }
+export { homeCtrl }

@@ -5,15 +5,15 @@ export function routing ($stateProvider, $urlRouterProvider, $locationProvider) 
 
   const helloState = {
     name: 'hello',
-    url: '/hello',
+    url: '/',
     template: require('./home/home.html'),
-    controller: 'mainCtrl as ctrl'
+    controller: 'homeCtrl as ctrl'
   };
 
   const aboutState = {
     name: 'about',
     url: '/about',
-    template: '<h3>It\'s about Webpack, ES2017, and AngularJS!</h3>'
+    component: 'lkqAbout'
   }
 
   $stateProvider.state(helloState);
