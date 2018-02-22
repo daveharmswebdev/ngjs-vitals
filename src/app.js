@@ -10,11 +10,10 @@ import { routing } from './app.routing';
 import { LkqAbout } from './about/lkq-about.component';
 import { LkqNavbar } from './navbar/lkq-navbar.component';
 import { LkqFooter } from './footer/lkq-footer.component';
-import { LkqTodos } from './todos/lkq-todos.component';
-import { TodosService } from './todos/lks-todos.service';
+import { TodoModule } from './todos/lkq-todos.module';
 
 // app
-angular.module('app', [uiRouter]);
+angular.module('app', [uiRouter, TodoModule]);
 
 // routing
 angular.module('app').config(routing);
@@ -27,7 +26,3 @@ angular.module('app').component('lkqAbout', LkqAbout);
 // nav and footer components
 angular.module('app').component('lkqNavbar', LkqNavbar);
 angular.module('app').component('lkqFooter', LkqFooter);
-angular.module('app').component('lkqTodos', LkqTodos);
-
-// service
-angular.module('app').service('TodosService', TodosService);

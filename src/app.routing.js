@@ -1,6 +1,7 @@
-routing.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider']
+// routing.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider']
 
 export function routing ($stateProvider, $urlRouterProvider, $locationProvider) {
+  'ngInject';
   $locationProvider.html5Mode(true);
 
   const helloState = {

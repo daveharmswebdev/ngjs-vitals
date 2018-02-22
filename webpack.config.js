@@ -6,7 +6,7 @@ const webpack = require('webpack');
 
 const extractPlugin = new ExtractTextPlugin({ filename: './assets/css/app.css' });
 
-const config = {
+module.exports = {
 
   context: path.resolve(__dirname, 'src'),
 
@@ -27,12 +27,14 @@ const config = {
         test: /\.js$/,
         include: /src/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ['env']
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['env']
+            }
           }
-        }
+        ]
       },
       //html-loader
       { test: /\.html$/, use: ['html-loader'] },
@@ -85,18 +87,6 @@ const config = {
       template: 'index.html'
     }),
     extractPlugin
-  ],
-
-  devServer: {
-    contentBase: path.resolve(__dirname, "./dist/assets/media"),
-    compress: true,
-    port: 12000,
-    open: true,
-    historyApiFallback: true
-  },
-
-  devtool: 'inline-source-map'
+  ]
 
 }
-
-module.exports = config;

@@ -1,4 +1,5 @@
 export function controller(TodosService) {
+  'ngInject';
   this.title = 'Todos'
   this.newTodo = '';
   this.todos = [];
