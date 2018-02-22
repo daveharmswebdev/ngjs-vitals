@@ -14,9 +14,16 @@ export function routing ($stateProvider, $urlRouterProvider, $locationProvider) 
     name: 'about',
     url: '/about',
     component: 'lkqAbout'
-  }
+  };
+
+  const todosState = {
+    name: 'todos',
+    url: '/todos',
+    component: 'lkqTodos'
+  };
 
   $stateProvider.state(helloState);
   $stateProvider.state(aboutState);
+  $stateProvider.state(todosState);
   $urlRouterProvider.otherwise('/');
 }
