@@ -16,4 +16,26 @@ export function controller(TodosService) {
         console.log(this.todos);
       })
   }
+
+  this.removeTodo = function (todo) {
+    console.log(todo);
+    TodosService.removeTodo(todo)
+    .then(() => {
+      const newTodos = this.todos.filter(t => t.id != todo);
+      this.todos = newTodos;
+    });
+  }
+
+  this.addTodo = function (newTodo) {
+    const payload = {
+      todo: this.newTodo,
+      complete: false
+    }
+    console.log(payload);
+    TodosService.addTodo(payload)
+    .then((response) => {
+      this.newTodo = '';
+      this.todos = [...this.todos, response.data];
+    });
+  }
 }

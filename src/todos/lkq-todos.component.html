@@ -6,14 +6,16 @@
       <input type="text" id="todo" class="form-control" placeholder="New Todo" ng-model="$ctrl.newTodo">
       <button class="btn btn-primary" type="submit">Add Todo</button>
     </form>
+    <div class="card todos--list">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item" ng-repeat="todo in $ctrl.todos">
+          <div>
+            <p>{{todo.todo}}<span class="delete-todo" ng-click="$ctrl.removeTodo(todo.id)">X</span> </p>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 
-<div class="card">
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item" ng-repeat="todo in $ctrl.todos">
-      {{todo.todo}}
-    </li>
-  </ul>
-</div>
 

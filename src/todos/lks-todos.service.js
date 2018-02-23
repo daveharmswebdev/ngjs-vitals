@@ -9,4 +9,12 @@ export class TodosService {
       return this.$http.get(this._baseUrl + '/todos');
     }
 
+    removeTodo(id) {
+      return this.$http.delete(this._baseUrl + '/todos/' + id);
+    }
+
+    addTodo(payload) {
+      return this.$http.post(this._baseUrl + '/todos', payload);
+    }
+
 }
