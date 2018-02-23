@@ -165,3 +165,30 @@ angular.module('app').controller('mainCtrl', MainCtrl);
 ```
 
 The previous lines of code imports angular and ui-router, which were NPM installed, creates an angular module named `app`, creates a controller named `mainCtrl`, imports a class named `MainCtrl` which becomes the functionality of the `mainCtrl` controller. 
+
+## UI-Router
+
+## Feature Modules
+
+```javascript
+// app.js
+import angular from 'angular';
+...
+import { TodoModule } from './todos/lkq-todos.module';
+
+angular.module('app', [uiRouter, TodoModule]);
+
+// todos.module.js
+import angular from 'angular';
+import { LkqTodos } from './lkq-todos.component';
+import { TodosService } from './lks-todos.service';
+
+export const TodoModule = angular
+  .module('TodoModule', [])
+  .component('lkqTodos', LkqTodos)
+  .service('TodosService', TodosService)
+  .name
+```
+
+## DevServer and Production Build Files
+Webpack allows you fine control of the devserver (hotmodule reload with browser refresh upon file change) and production build. This project has three webpack config files. A common file, and dev and production files that import the common file and extends on them. 

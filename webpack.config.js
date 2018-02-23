@@ -11,7 +11,8 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
 
   entry: {
-    app: './app.js'
+    app: './app.js',
+    vendor: ['angular', '@uirouter/angularjs', 'jquery']
   },
 
   output: {
@@ -47,6 +48,7 @@ module.exports = {
             {
               loader: 'css-loader',
               options: {
+                minimize: true,
                 sourceMap: true
               }
             },
@@ -82,6 +84,10 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      miniChunks: Infinity
+    }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: 'index.html'
