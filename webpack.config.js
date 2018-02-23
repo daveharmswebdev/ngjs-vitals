@@ -11,8 +11,8 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
 
   entry: {
+    vendor: ['angular', '@uirouter/angularjs', 'jquery'],
     app: './app.js',
-    vendor: ['angular', '@uirouter/angularjs', 'jquery']
   },
 
   output: {
