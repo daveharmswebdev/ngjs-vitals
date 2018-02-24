@@ -17,4 +17,10 @@ export class TodosService {
       return this.$http.post(this._baseUrl + '/todos', payload);
     }
 
+    updateComplete(todo) {
+      console.log(todo);
+      const payload = { complete: todo.complete};
+      return this.$http.patch(this._baseUrl + '/todos/' + todo.id, payload)
+    }
+
 }

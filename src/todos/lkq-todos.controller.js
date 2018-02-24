@@ -17,11 +17,11 @@ export function controller(TodosService) {
       })
   }
 
-  this.removeTodo = function (todo) {
-    console.log(todo);
-    TodosService.removeTodo(todo)
+  this.removeTodo = function ({id}) {
+    console.log(id);
+    TodosService.removeTodo(id)
     .then(() => {
-      const newTodos = this.todos.filter(t => t.id != todo);
+      const newTodos = this.todos.filter(t => t.id != id);
       this.todos = newTodos;
     });
   }
@@ -37,5 +37,19 @@ export function controller(TodosService) {
       this.newTodo = '';
       this.todos = [...this.todos, response.data];
     });
+  }
+
+  this.updateComplete = function(todo) {
+    console.log('controller', todo);
+    TodosService.updateComplete(todo)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log('error', error)
+      const idx = this.todos.map(t => t.id).indexOf(todo.todo.id);
+      todo.todo.complete = !todo.todo.complete;
+      this.todos[idx] = todo.todo;
+    })
   }
 }

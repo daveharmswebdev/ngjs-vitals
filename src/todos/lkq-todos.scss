@@ -14,5 +14,13 @@
     .delete-todo:hover {
       cursor: pointer;
     }
+
+    .todos--item {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      // p, input {
+      // }
+    }
   }
 }
